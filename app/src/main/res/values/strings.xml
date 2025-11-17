@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhotoAI Editor</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">AI-Powered Photo Editing</string>
+    <string name="onboarding_desc_1">Transform your photos with cutting-edge AI technology</string>
+    <string name="onboarding_title_2">Professional Filters</string>
+    <string name="onboarding_desc_2">Apply stunning filters to enhance, beautify, and stylize</string>
+    <string name="onboarding_title_3">Premium Features</string>
+    <string name="onboarding_desc_3">Unlock unlimited filters and export without watermarks</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- Home -->
+    <string name="home_title">Select your photo and start the magic</string>
+    <string name="select_from_gallery">Select from Gallery</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="coming_soon">Coming Soon</string>
+
+    <!-- Edit -->
+    <string name="edit_title">Edit Photo</string>
+    <string name="apply_filter">Apply Filter</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
+    <string name="show_original">Show Original</string>
+    <string name="show_edited">Show Edited</string>
+    <string name="processing">Processing...</string>
+    <string name="filter_enhance">Enhance</string>
+    <string name="filter_beautify">Beautify</string>
+    <string name="filter_portrait_hd">Portrait HD</string>
+    <string name="filter_cartoon">Cartoon</string>
+    <string name="filter_vintage">Vintage</string>
+    <string name="filter_bw">B&amp;W</string>
+
+    <!-- Premium -->
+    <string name="premium_title">Go Premium</string>
+    <string name="premium_subtitle">Unlock all features</string>
+    <string name="premium_feature_1">Ad-free experience</string>
+    <string name="premium_feature_2">Export in high resolution without watermark</string>
+    <string name="premium_feature_3">Access to all AI filters</string>
+    <string name="premium_feature_4">Priority support</string>
+    <string name="premium_price">₺39.99/month</string>
+    <string name="upgrade_now">Upgrade Now</string>
+    <string name="restore_purchase">Restore Purchase</string>
+    <string name="terms_and_privacy">Terms of Service | Privacy Policy</string>
+
+    <!-- Watermark -->
+    <string name="watermark_text">PhotoAI</string>
+
+    <!-- Messages -->
+    <string name="image_saved">Image saved to gallery</string>
+    <string name="error_saving_image">Error saving image</string>
+    <string name="error_loading_image">Error loading image</string>
+    <string name="error_processing">Error processing image</string>
+    <string name="permission_required">Storage permission required</string>
+    <string name="premium_feature_locked">This feature is available for Premium users</string>
+
+    <!-- Ads -->
+    <string name="ad_loading">Loading ad...</string>
+</resources>
