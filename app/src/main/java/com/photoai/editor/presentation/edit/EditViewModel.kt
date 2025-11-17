@@ -3,6 +3,7 @@ package com.photoai.editor.presentation.edit
 import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.photoai.editor.data.local.ImageCache
 import com.photoai.editor.domain.model.FilterType
 import com.photoai.editor.domain.usecase.ApplyFilterUseCase
 import com.photoai.editor.domain.usecase.CheckPremiumAccessUseCase
@@ -18,13 +19,16 @@ import javax.inject.Inject
 class EditViewModel @Inject constructor(
     private val applyFilterUseCase: ApplyFilterUseCase,
     private val exportImageUseCase: ExportImageUseCase,
-    private val checkPremiumAccessUseCase: CheckPremiumAccessUseCase
+    private val checkPremiumAccessUseCase: CheckPremiumAccessUseCase,
+    private val imageCache: ImageCache
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<EditUiState>(EditUiState.Idle)
     val uiState: StateFlow<EditUiState> = _uiState.asStateFlow()
 
     private val _originalBitmap = MutableStateFlow<Bitmap?>(null)
+    val originalBitmap: StateFlow<Bitmap?> = _originalBitmap.asStateFlow()
+
     private val _editedBitmap = MutableStateFlow<Bitmap?>(null)
     val editedBitmap: StateFlow<Bitmap?> = _editedBitmap.asStateFlow()
 
@@ -33,6 +37,11 @@ class EditViewModel @Inject constructor(
 
     private val _showOriginal = MutableStateFlow(false)
     val showOriginal: StateFlow<Boolean> = _showOriginal.asStateFlow()
+
+    init {
+        // Load image from cache when ViewModel is created
+        _originalBitmap.value = imageCache.getImage()
+    }
 
     fun setOriginalImage(bitmap: Bitmap) {
         _originalBitmap.value = bitmap

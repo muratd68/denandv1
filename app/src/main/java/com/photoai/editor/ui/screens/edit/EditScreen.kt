@@ -26,7 +26,6 @@ import com.photoai.editor.R
 import com.photoai.editor.domain.model.FilterType
 import com.photoai.editor.presentation.edit.EditUiState
 import com.photoai.editor.presentation.edit.EditViewModel
-import com.photoai.editor.presentation.home.HomeViewModel
 import com.photoai.editor.ui.components.FilterChip
 import com.photoai.editor.ui.components.LoadingIndicator
 import kotlinx.coroutines.launch
@@ -36,22 +35,17 @@ import kotlinx.coroutines.launch
 fun EditScreen(
     onBack: () -> Unit,
     onPremiumClick: () -> Unit,
-    homeViewModel: HomeViewModel = hiltViewModel(),
     viewModel: EditViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val selectedImage by homeViewModel.selectedImage.collectAsState()
+    val originalBitmap by viewModel.originalBitmap.collectAsState()
     val editedBitmap by viewModel.editedBitmap.collectAsState()
     val selectedFilter by viewModel.selectedFilter.collectAsState()
     val showOriginal by viewModel.showOriginal.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
-
-    LaunchedEffect(selectedImage) {
-        selectedImage?.let { viewModel.setOriginalImage(it) }
-    }
 
     LaunchedEffect(uiState) {
         when (val state = uiState) {
@@ -124,9 +118,9 @@ fun EditScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     val displayBitmap = when {
-                        showOriginal -> selectedImage
+                        showOriginal -> originalBitmap
                         editedBitmap != null -> editedBitmap
-                        else -> selectedImage
+                        else -> originalBitmap
                     }
 
                     displayBitmap?.let { bitmap ->
